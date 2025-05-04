@@ -1,0 +1,2 @@
+{"level":"info","ts":"2025-05-04T14:56:37.407+0300","msg":"Запрос к API","url":"https://jsonplaceholder.typicode.com1/posts"}
+{"level":"error","ts":"2025-05-04T14:56:37.580+0300","msg":"Ошибка при получении постов","error":"ошибка HTTP-запроса: Get \"https://jsonplaceholder.typicode.com1/posts\": dial tcp: lookup jsonplaceholder.typicode.com1 on 127.0.0.53:53: no such host"}

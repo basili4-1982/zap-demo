@@ -1,2 +1,5 @@
-{"level":"info","ts":"2025-05-04T14:56:37.407+0300","msg":"Запрос к API","url":"https://jsonplaceholder.typicode.com1/posts"}
-{"level":"error","ts":"2025-05-04T14:56:37.580+0300","msg":"Ошибка при получении постов","error":"ошибка HTTP-запроса: Get \"https://jsonplaceholder.typicode.com1/posts\": dial tcp: lookup jsonplaceholder.typicode.com1 on 127.0.0.53:53: no such host"}
+{"level":"info","ts":"2025-05-04T16:09:57.633+0300","msg":"Запрос к API","url":"https://jsonplaceholder.typicode.c1om/posts"}
+{"level":"error","ts":"2025-05-04T16:09:57.708+0300","msg":"Ошибка при получении постов","error":"ошибка HTTP-запроса: Get \"https://jsonplaceholder.typicode.c1om/posts\": dial tcp: lookup jsonplaceholder.typicode.c1om on 127.0.0.53:53: no such host"}
+{"level":"info","ts":"2025-05-04T16:10:51.783+0300","msg":"Запрос к API","url":"https://jsonplaceholder.typicode.com/posts"}
+{"level":"info","ts":"2025-05-04T16:10:52.121+0300","msg":"Успешно получены данные","количество постов":100}
+{"level":"info","ts":"2025-05-04T16:10:52.121+0300","msg":"Посты отсортированы","первый ID":100}

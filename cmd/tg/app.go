@@ -17,11 +17,19 @@ import (
 	"gopkg.in/natefinch/lumberjack.v2"
 )
 
-const (
-	YOUR_CHAT_ID            = 1
-	YOUR_TELEGRAM_BOT_TOKEN = "YOUR_TELEGRAM_BOT_TOKEN"
-)
-
+// Определены в другом файле
+//
+// YOUR_CHAT_ID
+// YOUR_TELEGRAM_BOT_TOKEN
+//
+// НЕ обходимо определить
+// const (
+//
+//	YOUR_CHAT_ID            = -100*
+//	YOUR_TELEGRAM_BOT_TOKEN = ""
+//
+// )
+//
 // Post представляет структуру данных из API JSONPlaceholder
 type Post struct {
 	ID     int    `json:"id"`

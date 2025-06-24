@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"os"
 	"sort"
 	"time"
 
@@ -24,6 +25,10 @@ type Post struct {
 // fetchPosts получает список постов с внешнего API
 func fetchPosts(ctx context.Context, logger *zap.Logger) ([]Post, error) {
 	url := "https://jsonplaceholder.typicode.com/posts"
+
+	l := ctx.Value(keyLogger).(*zap.Logger)
+
+	l.Info("fetching posts")
 
 	// Настраиваем HTTP-клиент с таймаутом
 	client := &http.Client{Timeout: 5 * time.Second}
@@ -82,10 +87,27 @@ func printPost(posts Post, logger *zap.Logger) {
 		posts.Title, posts.Body)
 }
 
+type keyCtx string
+
+var keyLogger keyCtx = "key"
+
 func main() {
 	//TODO: разделить создание логера для prod и dev окружения
 	// Инициализация логгера
-	logger, err := zap.NewDevelopment()
+
+	isDevelop := os.Getenv("DEVELOPMENT") == "dev"
+
+	var (
+		logger *zap.Logger
+		err    error
+	)
+
+	if isDevelop {
+		logger, err = zap.NewDevelopment(zap.IncreaseLevel(zap.InfoLevel))
+	} else {
+		logger, err = zap.NewProduction()
+	}
+
 	if err != nil {
 		panic(fmt.Sprintf("ошибка инициализации логгера: %v", err))
 	}
@@ -95,7 +117,8 @@ func main() {
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
 
-	//TODO: прячем логгер в контекст
+	ctx = context.WithValue(ctx, keyLogger, logger)
+
 	// 1. Запрашиваем данные с внешнего API
 	posts, err := fetchPosts(ctx, logger)
 	if err != nil {

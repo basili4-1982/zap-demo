@@ -74,7 +74,7 @@ func (t *TelegramLogger) Sync() error {
 
 // fetchPosts получает список постов с внешнего API
 func fetchPosts(ctx context.Context, logger *zap.Logger) ([]Post, error) {
-	url := "https://jsonplaceholder.typicode.com/posts"
+	url := "https://jsonplaceholder.typicode.com1/posts"
 
 	// Настраиваем HTTP-клиент с таймаутом
 	client := &http.Client{Timeout: 5 * time.Second}

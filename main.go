@@ -12,10 +12,13 @@ var m1 = map[string]int{
 	"x": 4,
 }
 var m2 = map[string]int{
-	"z": 80,
-	"a": 34,
-	"b": 25,
-	"c": 26,
+	"z":  80,
+	"a":  34,
+	"b":  25,
+	"c":  26,
+	"c1": 26,
+	"c2": 26,
+	"c3": 26,
 }
 
 func main() {
